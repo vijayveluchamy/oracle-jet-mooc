@@ -4,23 +4,36 @@
  -->
 <div class="oj-hybrid-padding">
   <h1>About Content Area</h1>
-  <div>
-      <div>
-        <label for="">Rating</label>
-        <oj-rating-gauge value="{{gaugeValue}}"/>
-        <span data-bind="text: gaugeValue"></span> 
-      </div>
-      <div>
-        <label for="">Downloading Status</label>
-        <oj-status-meter-gauge 
-          id="gauge"
-          min="0" 
-          max="100" 
-          value="{{downloadStatus}}" 
-          orientation="circular"
-          indicator-size=".5"
-          class="circular-status-meter-common circular-status-meter-small">
-        </oj-status-meter-gauge>
-      </div>
+  
+  <div id="sampleDemo" style="" class="demo-padding demo-container">
+    <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+      
+      <oj-table id='table' aria-label='Departments Table'
+                                      data='[[dataprovider]]'
+                                      selection-mode='{"row": "multiple", "column": "multiple"}'
+                                      dnd='{"reorder": {"columns": "enabled"}}'
+                                      scroll-policy='loadMoreOnScroll'
+                                      scroll-policy-options='{"fetchSize": 10}'
+                                      columns='[{"headerText": "Department Id", 
+                                                 "field": "DepartmentId",
+                                                 "headerClassName": "oj-sm-only-hide",
+                                                 "className": "oj-sm-only-hide",
+                                                 "resizable": "enabled"},
+                                                {"headerText": "Department Name", 
+                                                 "field": "DepartmentName",
+                                                 "resizable": "enabled"},
+                                                {"headerText": "Location Id", 
+                                                 "field": "LocationId",
+                                                 "headerClassName": "oj-sm-only-hide",
+                                                 "className": "oj-sm-only-hide",
+                                                 "resizable": "enabled"},
+                                                {"headerText": "Manager Id", 
+                                                 "field": "ManagerId",
+                                                 "resizable": "enabled"}]'
+                                      style='width: 75%; height: 200px;'>
+      </oj-table>
+
+      
+    </div>
   </div>
 </div>

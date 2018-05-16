@@ -6,22 +6,22 @@
 /*
  * Your about ViewModel code goes here
  */
-define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojgauge'],
+define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojtable', 'ojs/ojarraydataprovider'],
  function(oj, ko, $) {
   
     function AboutViewModel() {
       var self = this;
-      self.gaugeValue = ko.observable(3);
-      self.downloadStatus = ko.observable(15);
-
-      setInterval(function(){
-          var curStatus = self.downloadStatus();
-          curStatus += 5;
-          if (curStatus <= 100) {
-            
-            self.downloadStatus(curStatus);
-          }
-      }, 1000)
+     
+      var deptArray = [
+        {DepartmentId: 3, DepartmentName: 'ADFPM 1001 neverending', LocationId: 200, ManagerId: 300},
+        {DepartmentId: 5, DepartmentName: 'BB', LocationId: 200, ManagerId: 300},
+        {DepartmentId: 10, DepartmentName: 'Administration', LocationId: 200, ManagerId: 300},
+        {DepartmentId: 20, DepartmentName: 'Marketing', LocationId: 200, ManagerId: 300}
+      ];
+      self.dataprovider = new oj.ArrayDataProvider(deptArray, {
+        idAttribute: 'DepartmentId', 
+        implicitSort: [{attribute: 'DepartmentId', direction: 'ascending'}]
+      });
 
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
