@@ -1,0 +1,26 @@
+<!--
+ Copyright (c) 2014, 2018, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+ -->
+<div class="oj-hybrid-padding">
+  <h1>About Content Area</h1>
+  <div>
+      <div>
+        <label for="">Rating</label>
+        <oj-rating-gauge value="{{gaugeValue}}"/>
+        <span data-bind="text: gaugeValue"></span> 
+      </div>
+      <div>
+        <label for="">Downloading Status</label>
+        <oj-status-meter-gauge 
+          id="gauge"
+          min="0" 
+          max="100" 
+          value="{{downloadStatus}}" 
+          orientation="circular"
+          indicator-size=".5"
+          class="circular-status-meter-common circular-status-meter-small">
+        </oj-status-meter-gauge>
+      </div>
+  </div>
+</div>
